@@ -1,0 +1,43 @@
+﻿<Window x:Class="DatabaseBrowser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Database Browser" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <ToolBar >
+                <Button Name="btnConnect" Content="Connect" />
+                <Button Name="btnExecute" Content="Execute" IsEnabled="False" />
+            </ToolBar>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <TreeView Name="trvBrowser"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <TextBox Margin="5" Name="txtQuery" />
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" Name="grdResult" AutoGenerateColumns="False" IsReadOnly="True" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
